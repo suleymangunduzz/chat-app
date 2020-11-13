@@ -1,0 +1,38 @@
+.message {
+    display: flex;
+    margin-top: 10px;
+
+    &:first-child {
+        margin-top: unset;
+    }
+
+    &__content {
+        width: 40%;
+        display: flex;
+        padding: 15px;
+        flex-direction: column;
+        border: 1px solid grey;
+        border-radius: 10px;
+        background-color: grey;
+        color: white;
+
+        &--left {
+            margin-right: auto;
+        }
+
+        &--right {
+            margin-left: auto;
+            text-align: right;
+        }
+
+        &__title {
+            &--left {
+                margin-left: auto;
+            }
+
+            &--right {
+                margin-right: auto;
+            }
+        }
+    }
+}

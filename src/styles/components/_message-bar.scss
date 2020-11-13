@@ -1,0 +1,13 @@
+.message-bar {
+    display: flex;
+    min-height: 150px;
+
+    &__input {
+        resize: none;
+        width: 75%;
+    }
+
+    &__button {
+        width: 25%;
+    }
+}

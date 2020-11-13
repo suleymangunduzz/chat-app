@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    line-height: 50px;
+    font-size: 2rem;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+
+    &__title {
+        width: 75%;
+        margin-left: 30px;
+    }
+
+    &__settings {
+        width: 25%;
+        text-align: right;
+        margin-right: 30px;
+    }
+}

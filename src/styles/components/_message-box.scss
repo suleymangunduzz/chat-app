@@ -1,0 +1,8 @@
+.message-box {
+    height: calc(100vh - 285px);
+    padding: 15px 10px;
+    margin: 10px 0;
+    border: 1px solid grey;
+    border-radius: 10px;
+    overflow: scroll;
+}
