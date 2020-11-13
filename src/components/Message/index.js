@@ -18,7 +18,7 @@ const Message = ({ side, text, userName, time }) => {
         <div className="message">
             <div className={ contentClass }>
                 <div className={ titleClass }>Guest 001 13:55</div>
-                <div className="message__content__text">Hey! How are you?</div>
+                <div className="message__content__text">{ text }</div>
             </div>
         </div>
     );
