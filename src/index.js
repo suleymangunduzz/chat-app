@@ -26,9 +26,7 @@ const App = () => {
         setMessages(prevMessages => [...prevMessages, message]);
     }
 
-    const sendMessage = event => {
-        event.preventDefault();
-
+    const sendMessage = () => {
         if (message) {
             const messageObject = {
                 body: message,

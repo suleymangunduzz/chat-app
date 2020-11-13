@@ -3,8 +3,9 @@
     min-height: 150px;
 
     &__input {
-        resize: none;
         width: 75%;
+        resize: none;
+        padding: 20px;
     }
 
     &__button {
