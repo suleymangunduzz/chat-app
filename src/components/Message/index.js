@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { classnames, hoursFormatter } from '../../utils';
+import { classnames, hoursFormatter, checkURLContainsImage } from '../../utils';
 
 const Message = ({ side, text, time, timeType, userName }) => {
     const contentClass = classnames({
@@ -18,7 +18,7 @@ const Message = ({ side, text, time, timeType, userName }) => {
         <div className="message">
             <div className={ contentClass }>
                 <div className={ titleClass }>{`${userName} ${hoursFormatter(time, timeType)}`}</div>
-                <div className="message__content__text">{ text }</div>
+                 { checkURLContainsImage(text) ? <img src={text} /> : <div className="message__content__text">{ text }</div> }
             </div>
         </div>
     );
