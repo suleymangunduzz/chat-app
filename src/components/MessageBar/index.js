@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const MessageBar = ({ sendMessage, handleMessageChange, message }) => {
+const MessageBar = ({
+    sendMessage,
+    handleMessageChange,
+    sendMessageFromKeyboard,
+    message
+}) => {
     const [ keys, setKeys ] = useState([]);
 
     useEffect(() => {
@@ -15,7 +20,7 @@ const MessageBar = ({ sendMessage, handleMessageChange, message }) => {
     }, []);
 
     useEffect(() => {
-        if (keys.length >= 2 && keys[keys.length-2] === 'Meta' && keys[keys.length-1] === 'Enter') {
+        if (keys.length >= 2 && keys[keys.length-2] === 'Meta' && keys[keys.length-1] === 'Enter' && sendMessageFromKeyboard) {
             sendMessage();
         }
     }, [keys]);
@@ -40,7 +45,8 @@ const MessageBar = ({ sendMessage, handleMessageChange, message }) => {
 MessageBar.propTypes = {
     sendMessage: PropTypes.func,
     handleMessageChange: PropTypes.func,
-    message: PropTypes.string
+    message: PropTypes.string,
+    sendMessageFromKeyboard: PropTypes.bool
 }
 
 export default MessageBar;

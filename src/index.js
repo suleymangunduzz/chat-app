@@ -73,7 +73,8 @@ const App = () => {
             <MessageBar
                 sendMessage={ sendMessage }
                 handleMessageChange={ handleMessageChange }
-                message={ message } />
+                message={ message }
+                sendMessageFromKeyboard={ sendMessageFromKeyboard } />
             <Modal
                 show={ showSettings }
                 setShowSettings={ setShowSettings }
