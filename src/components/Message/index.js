@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { classnames } from '../../utils';
 
-const Message = ({ side, text, userName, time }) => {
+const Message = ({ side, text, time }) => {
     const contentClass = classnames({
         'message__content': true,
         [`message__content--${side}`]: side
@@ -17,7 +17,7 @@ const Message = ({ side, text, userName, time }) => {
     return (
         <div className="message">
             <div className={ contentClass }>
-                <div className={ titleClass }>Guest 001 13:55</div>
+                <div className={ titleClass }>{`Guest 001 ${time}`}</div>
                 <div className="message__content__text">{ text }</div>
             </div>
         </div>
@@ -27,7 +27,6 @@ const Message = ({ side, text, userName, time }) => {
 Message.propTypes = {
     side: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    userName: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired
 }
 

@@ -8,9 +8,9 @@ const socket = require('socket.io');
 const io = socket(server);
 
 io.on('connection', socket => {
-    socket.emit("user id", socket.id);
-    socket.on("send message", body => {
-        io.emit("message", body);
+    socket.emit('user id', socket.id);
+    socket.on('send message', body => {
+        io.emit('message', body);
     })
 })
 
