@@ -15,9 +15,10 @@ const App = () => {
     const [ message, setMessage ] = useState('');
     const [ showSettings, setShowSettings ] = useState(false);
 
-    // Default settings values.
-    const [ timeType, setTimeType ] = useState(12);
-    const [ sendMessageFromKeyboard, setSendMessageFromKeyboard ] = useState(true);
+    // Default settings values, if exist, get from localStorage first !
+    const [ timeType, setTimeType ] = useState(+localStorage.getItem('timeType') || 12);
+    let defaultKeyboard = localStorage.getItem('keyboard') === 'false' ? false : true;
+    const [ sendMessageFromKeyboard, setSendMessageFromKeyboard ] = useState(defaultKeyboard);
 
     const socketRef = useRef();
 
@@ -25,6 +26,7 @@ const App = () => {
         socketRef.current = io.connect('http://localhost:8000');
         socketRef.current.on('user id', id => setUserID(id));
         socketRef.current.on('message', message => recievedMessage(message));
+
     }, []);
 
     const recievedMessage = message => {

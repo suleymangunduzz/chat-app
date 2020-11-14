@@ -18,15 +18,20 @@ const Modal = ({
 
     const handleTime = (event) => {
         setTimeType(+event.target.id);
+        localStorage.setItem('timeType', +event.target.id);
     };
 
     const handleKeyboard = (event) => {
-        setSendMessageFromKeyboard(event.target.id === 'sendMessageFromKeyboard');
+        const value = event.target.id === 'sendMessageFromKeyboard';
+        setSendMessageFromKeyboard(value);
+        localStorage.setItem('keyboard', value);
     };
 
     const resetToDefault = () => {
         setTimeType(12);
+        localStorage.setItem('timeType', 12);
         setSendMessageFromKeyboard(true);
+        localStorage.setItem('keyboard', true);
     }
 
     return (
