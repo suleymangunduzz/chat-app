@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { classnames } from '../../utils';
@@ -9,8 +9,11 @@ const Modal = ({
     timeType,
     sendMessageFromKeyboard,
     setTimeType,
-    setSendMessageFromKeyboard
+    setSendMessageFromKeyboard,
+    socketRef
 }) => {
+    const [ newUserName, setUserName ] = useState('');
+
     const modalClass = classnames({
         'modal': true,
         'modal--off': !show
@@ -21,7 +24,7 @@ const Modal = ({
         localStorage.setItem('timeType', +event.target.id);
     };
 
-    const handleKeyboard = (event) => {
+    const handleKeyboard = event => {
         const value = event.target.id === 'sendMessageFromKeyboard';
         setSendMessageFromKeyboard(value);
         localStorage.setItem('keyboard', value);
@@ -32,11 +35,26 @@ const Modal = ({
         localStorage.setItem('timeType', 12);
         setSendMessageFromKeyboard(true);
         localStorage.setItem('keyboard', true);
+    };
+
+    const handleUserName = event => {
+        setUserName(event.target.value);
+    };
+
+    const submitUserName = () => {
+        console.log('newUserName: ', newUserName);
+        socketRef.current.emit('update name', newUserName);
+        setUserName('');
     }
 
     return (
         <div className={ modalClass }>
             <div className="modal__content">
+                <span>Change Username</span>
+                <div className="modal__content__container">
+                    <input type="text" placeholder="Enter username..." onChange={ handleUserName } value={newUserName} />
+                    <button onClick={ submitUserName }>Submit</button>
+                </div>
                 <span>Clock Display</span>
                 <div className="modal__content__container">
                 <div>

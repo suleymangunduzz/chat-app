@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const MessageBox = ({ children }) => {
+const MessageBox = ({ messages }) => {
     return (
         <div className="message-box">
-            { children }
+            { messages }
         </div>
     );
-}
+};
+
+MessageBox.propTypes = {
+    messages: PropTypes.array.isRequired
+};
 
 export default MessageBox;

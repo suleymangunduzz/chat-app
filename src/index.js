@@ -26,7 +26,6 @@ const App = () => {
         socketRef.current = io.connect('http://localhost:8000');
         socketRef.current.on('user id', id => setUserID(id));
         socketRef.current.on('message', message => recievedMessage(message));
-
     }, []);
 
     const recievedMessage = message => {
@@ -61,7 +60,8 @@ const App = () => {
             side={ message.id === userID ? 'right' : 'left' }
             text={ message.body }
             time={ message.time }
-            timeType={ timeType } />)
+            timeType={ timeType }
+            userName={ message.userName } />)
             :
             <div className="empty-state">There is no messages yet !</div>
     };
@@ -69,9 +69,7 @@ const App = () => {
     return (
         <div className="app">
             <Header setShowSettings={ setShowSettings }/>
-            <MessageBox>
-                { renderMessages() }
-            </MessageBox>
+            <MessageBox messages={ renderMessages() } />
             <MessageBar
                 sendMessage={ sendMessage }
                 handleMessageChange={ handleMessageChange }
@@ -83,7 +81,8 @@ const App = () => {
                 setTimeType={ setTimeType }
                 timeType={ timeType }
                 sendMessageFromKeyboard={ sendMessageFromKeyboard }
-                setSendMessageFromKeyboard={ setSendMessageFromKeyboard } />
+                setSendMessageFromKeyboard={ setSendMessageFromKeyboard }
+                socketRef={ socketRef } />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { classnames, hoursFormatter } from '../../utils';
 
-const Message = ({ side, text, time, timeType }) => {
+const Message = ({ side, text, time, timeType, userName }) => {
     const contentClass = classnames({
         'message__content': true,
         [`message__content--${side}`]: side
@@ -17,7 +17,7 @@ const Message = ({ side, text, time, timeType }) => {
     return (
         <div className="message">
             <div className={ contentClass }>
-                <div className={ titleClass }>{`Guest 001 ${hoursFormatter(time, timeType)}`}</div>
+                <div className={ titleClass }>{`${userName} ${hoursFormatter(time, timeType)}`}</div>
                 <div className="message__content__text">{ text }</div>
             </div>
         </div>
@@ -27,6 +27,7 @@ const Message = ({ side, text, time, timeType }) => {
 Message.propTypes = {
     side: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
     time: PropTypes.object.isRequired,
     timeType: PropTypes.number.isRequired
 }
