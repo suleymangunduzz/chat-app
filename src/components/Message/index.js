@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { classnames } from '../../utils';
+import { classnames, hoursFormatter } from '../../utils';
 
-const Message = ({ side, text, time }) => {
+const Message = ({ side, text, time, timeType }) => {
     const contentClass = classnames({
         'message__content': true,
         [`message__content--${side}`]: side
@@ -17,7 +17,7 @@ const Message = ({ side, text, time }) => {
     return (
         <div className="message">
             <div className={ contentClass }>
-                <div className={ titleClass }>{`Guest 001 ${time}`}</div>
+                <div className={ titleClass }>{`Guest 001 ${hoursFormatter(time, timeType)}`}</div>
                 <div className="message__content__text">{ text }</div>
             </div>
         </div>
@@ -27,7 +27,8 @@ const Message = ({ side, text, time }) => {
 Message.propTypes = {
     side: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired
+    time: PropTypes.object.isRequired,
+    timeType: PropTypes.number.isRequired
 }
 
 export default Message;

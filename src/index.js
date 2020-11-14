@@ -9,8 +9,6 @@ import Message from './components/Message';
 import MessageBar from './components/MessageBar';
 import MessageBox from './components/MessageBox';
 
-import { hoursFormatter } from './utils';
-
 const App = () => {
     const [ userID, setUserID ] = useState('');
     const [ messages, setMessages ] = useState([]);
@@ -35,10 +33,15 @@ const App = () => {
 
     const sendMessage = () => {
         if (message) {
+            const date = new Date();
+
             const messageObject = {
                 body: message,
                 id: userID,
-                time: hoursFormatter(new Date(), timeType)
+                time: {
+                    hours: date.getHours(),
+                    minutes: date.getMinutes()
+                }
             };
     
             setMessage('');
@@ -55,7 +58,8 @@ const App = () => {
             key={ index }
             side={ message.id === userID ? 'right' : 'left' }
             text={ message.body }
-            time={ message.time }/>)
+            time={ message.time }
+            timeType={ timeType } />)
             :
             <div className="empty-state">There is no messages yet !</div>
     };

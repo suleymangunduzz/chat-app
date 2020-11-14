@@ -21,22 +21,22 @@ export const classnames = classObj => {
 };
 
 /**
- * Returns hours and minutes info from given date
+ * Returns hours and minutes info from time object
  * @example
  * 
- * const time = hoursFormatter(newDate(), 12);
- * time = 01:30PM
+ * const time = hoursFormatter({ hours: 13, minutes: 30 }, 12);
+ * time = 01:30 PM
  * 
- * const time = hoursFormatter(newDate(), 24);
+ * const time = hoursFormatter({ hours: 13, minutes: 30 }, 24);
  * time = 13:30
 */
 
-export const hoursFormatter = (date, type) => {
-    let hours = date.getHours() % type;
-    let minutes = date.getMinutes();
+export const hoursFormatter = (time, type) => {
+    const hours = time.hours % type;
+    const minutes = time.minutes;
 
     let finalHours = `${hours > 10 ? hours : `0${hours}`}:${minutes > 10 ? minutes : `0${minutes}`}`;
-    let isAM = date.getHours() < 12;
+    let isAM = hours > 12;
 
     return type === 12 ? `${finalHours} ${isAM ? 'AM' : 'PM'}` : finalHours;
 };
