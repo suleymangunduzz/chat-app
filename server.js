@@ -16,10 +16,14 @@ let people = {};
 io.on('connection', client => {
     client.emit('user id', client.id);
 
-    people = {
-        ...people,
-        [client.id]: `Guest - ${Object.keys(people).length++}`
-    };
+    client.on('join', () => {
+        people = {
+            ...people,
+            [client.id]: `Guest - ${Object.keys(people).length++}`
+        };
+        // client.emit('update', { body: 'You have connected the room.', type: 'info' });
+        io.emit('update', { body: `${ people[client.id] } have connected the room.`, type: 'info' });
+    });
     
     client.on('send message', body => {
         io.emit('message', {

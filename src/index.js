@@ -25,6 +25,7 @@ const App = () => {
     useEffect(() => {
         socketRef.current = io.connect('http://localhost:8000');
         socketRef.current.on('user id', id => setUserID(id));
+        socketRef.current.emit('join');
         socketRef.current.on('message', message => recievedMessage(message));
         socketRef.current.on('update', updateMessage => recievedMessage(updateMessage));
     }, []);
