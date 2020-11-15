@@ -50,7 +50,7 @@ const Modal = ({
         <div className={ modalClass }>
             <div className="modal__content">
                 <span>Change Username</span>
-                <div className="modal__content__container">
+                <div className="modal__content__container modal__content__container--input">
                     <input type="text" placeholder="Enter username..." onChange={ handleUserName } value={newUserName} />
                     <button onClick={ submitUserName }>Submit</button>
                 </div>

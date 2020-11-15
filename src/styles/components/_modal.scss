@@ -38,6 +38,14 @@
         display: flex;
         margin: 15px;
         justify-content: space-around;
+
+        &--input {
+          justify-content: unset;
+        }
+
+        button {
+          margin-left: 10px;
+        }
       }
     }
 

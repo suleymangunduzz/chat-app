@@ -3,9 +3,13 @@ const http = require('http');
 
 const app = express();
 const server = http.createServer(app);
-const socket = require('socket.io');
 
-const io = socket(server);
+const options = {
+    cors: true,
+    origins: ["*:*"],
+};
+
+const io = require('socket.io')(server, options);
 
 let people = {};
 
