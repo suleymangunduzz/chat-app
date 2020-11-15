@@ -21,7 +21,6 @@ io.on('connection', client => {
             ...people,
             [client.id]: `Guest - ${Object.keys(people).length++}`
         };
-        // client.emit('update', { body: 'You have connected the room.', type: 'info' });
         io.emit('update', { body: `${ people[client.id] } have connected the room.`, type: 'info' });
     });
     
@@ -33,6 +32,8 @@ io.on('connection', client => {
     });
 
     client.on('update name', name => {
+        io.emit('update', { body: `${ people[client.id] } has switched name to ${ name }.`, type: 'info' });
+
         people = {
             ...people,
             [client.id]: name
