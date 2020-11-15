@@ -42,7 +42,6 @@ const Modal = ({
     };
 
     const submitUserName = () => {
-        console.log('newUserName: ', newUserName);
         socketRef.current.emit('update name', newUserName);
         setUserName('');
     }
