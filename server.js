@@ -34,6 +34,10 @@ io.on('connection', client => {
             [client.id]: name
         };
     });
+
+    client.on('disconnect', () => {
+        io.emit('update', { body: `${people[client.id]} has left the room.`, type: 'info'});
+    });
 })
 
 server.listen(8000, () => console.log('server running on port 8000'));

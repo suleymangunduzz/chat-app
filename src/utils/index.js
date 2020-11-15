@@ -31,7 +31,7 @@ export const classnames = classObj => {
  * time = 13:30
 */
 
-export const hoursFormatter = (time, type) => {
+export const hoursFormatter = (time = {}, type) => {
     const hours = time.hours % type;
     const minutes = time.minutes;
 
@@ -42,6 +42,6 @@ export const hoursFormatter = (time, type) => {
 };
 
 
-export const checkURLContainsImage = url => {
+export const checkURLContainsImage = (url = '') => {
     return url.includes('http') && (url.includes('png') || url.includes('jpeg') || url.includes('gif') || url.includes('jpg'));
 };

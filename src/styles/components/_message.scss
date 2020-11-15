@@ -16,6 +16,14 @@
         background-color: grey;
         color: white;
 
+        &--info {
+            width: 100%;
+            text-align: center;
+            color: black;
+            background-color: unset;
+            border: unset;
+        }
+
         &--left {
             margin-right: auto;
         }
@@ -35,4 +43,8 @@
             }
         }
     }
+}
+
+.info-message {
+    
 }

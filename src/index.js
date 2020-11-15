@@ -26,6 +26,7 @@ const App = () => {
         socketRef.current = io.connect('http://localhost:8000');
         socketRef.current.on('user id', id => setUserID(id));
         socketRef.current.on('message', message => recievedMessage(message));
+        socketRef.current.on('update', updateMessage => recievedMessage(updateMessage));
     }, []);
 
     const recievedMessage = message => {
@@ -58,10 +59,8 @@ const App = () => {
         return messages.length ? messages?.map((message, index) => <Message
             key={ index }
             side={ message.id === userID ? 'right' : 'left' }
-            text={ message.body }
-            time={ message.time }
             timeType={ timeType }
-            userName={ message.userName } />)
+            { ...message } />)
             :
             <div className="empty-state">There is no messages yet !</div>
     };
