@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message should be rendered on the left side 1`] = `
+<div
+  className="message"
+>
+  <div
+    className="message__content message__content--left"
+  >
+    <div
+      className="message__content__title message__content__title--left"
+    >
+      Süleyman GÜNDÜZ 17:40
+    </div>
+    <div
+      className="message__content__text"
+    >
+      Some text message
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Message should be rendered on the right side 1`] = `
+<div
+  className="message"
+>
+  <div
+    className="message__content message__content--right"
+  >
+    <div
+      className="message__content__title message__content__title--right"
+    >
+      Süleyman GÜNDÜZ 17:40
+    </div>
+    <div
+      className="message__content__text"
+    >
+      Some text message
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Message should be rendered with info type 1`] = `
+<div
+  className="message"
+>
+  <div
+    className="message__content message__content--info"
+  >
+    <div>
+      Some text message
+    </div>
+  </div>
+</div>
+`;

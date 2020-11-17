@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageBar component render 1`] = `
+<div
+  className="message-bar"
+>
+  <textarea
+    className="message-bar__input"
+    onChange={[MockFunction]}
+    placeholder="Enter a message..."
+    value="Mock message text."
+  />
+  <button
+    className="message-bar__button"
+    onClick={[MockFunction]}
+  >
+    Send
+  </button>
+</div>
+`;

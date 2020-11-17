@@ -9,7 +9,7 @@ import Message from './components/Message';
 import MessageBar from './components/MessageBar';
 import MessageBox from './components/MessageBox';
 
-const App = () => {
+export const App = () => {
     const [ userID, setUserID ] = useState('');
     const [ messages, setMessages ] = useState([]);
     const [ message, setMessage ] = useState('');
