@@ -21,6 +21,7 @@ const App = () => {
     const [ sendMessageFromKeyboard, setSendMessageFromKeyboard ] = useState(defaultKeyboard);
 
     const socketRef = useRef();
+    const messageBoxRef = useRef();
 
     useEffect(() => {
         socketRef.current = io.connect('http://localhost:8000');
@@ -30,9 +31,20 @@ const App = () => {
         socketRef.current.on('update', updateMessage => recievedMessage(updateMessage));
     }, []);
 
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages])
+
     const recievedMessage = message => {
         setMessages(prevMessages => [...prevMessages, message]);
     };
+
+    const scrollToBottom = () => {
+        const scrollHeight = messageBoxRef.current.scrollHeight;
+        const height = messageBoxRef.current.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        messageBoxRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
 
     const sendMessage = () => {
         if (message) {
@@ -58,18 +70,18 @@ const App = () => {
 
     const renderMessages = () => {
         return messages.length ? messages?.map((message, index) => <Message
-            key={ index }
-            side={ message.id === userID ? 'right' : 'left' }
-            timeType={ timeType }
-            { ...message } />)
+                key={ index }
+                side={ message.id === userID ? 'right' : 'left' }
+                timeType={ timeType }
+                { ...message } />)
             :
             <div className="empty-state">There is no messages yet !</div>
-    };
+    };    
 
     return (
         <div className="app">
             <Header setShowSettings={ setShowSettings }/>
-            <MessageBox messages={ renderMessages() } />
+            <MessageBox messageBoxRef={ messageBoxRef} messages={ renderMessages() } />
             <MessageBar
                 sendMessage={ sendMessage }
                 handleMessageChange={ handleMessageChange }

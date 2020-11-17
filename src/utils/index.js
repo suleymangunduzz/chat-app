@@ -41,7 +41,10 @@ export const hoursFormatter = (time = {}, type) => {
     return type === 12 ? `${finalHours} ${isAM ? 'AM' : 'PM'}` : finalHours;
 };
 
-
+/**
+ * Returns true if the given link has an image.
+ * @param {string} url 
+ */
 export const checkURLContainsImage = (url = '') => {
     return url.includes('http') && (url.includes('png') || url.includes('jpeg') || url.includes('gif') || url.includes('jpg'));
 };
