@@ -54,7 +54,7 @@ Now you are free to send some messages to other users who coneected the room alr
 ### For optimized production build
 
 ```
-npm run build:prod
+npm run build
 ```
 
 ### Run the tests
