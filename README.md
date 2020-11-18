@@ -41,7 +41,7 @@ npm run build:dev && npm start
 In project root, to start the server:
 
 ```
-node server.js
+npm run start-server
 ```
 Optionally specify a port by supplying the `PORT` env variable.
 
@@ -54,7 +54,7 @@ Now you are free to send some messages to other users who coneected the room alr
 ### For optimized production build
 
 ```
-npm run build
+npm run build:prod
 ```
 
 ### Run the tests
