@@ -19,6 +19,7 @@ This is a simple chat app created with ReactJS, socket.io and Express.
 - [x] Show info message when a user join the room 
 - [x] Show info message when a user leave the room
 - [x] Show info message when a user changed his/her name
+- [x] Auto scroll to bottom on every new message
 
 ## Development
 
