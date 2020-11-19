@@ -20,7 +20,7 @@ This is a simple chat app created with ReactJS, socket.io and Express.
 - [x] Show info message when a user leave the room
 - [x] Show info message when a user changed his/her name
 
-## Usage
+## Development
 
 You should have nodejs and npm installed on your machine.
 
@@ -30,26 +30,22 @@ You should have nodejs and npm installed on your machine.
 npm install
 ```
 
-### Run app in your local environment
+### Run app on your local environment
 
 In project root, to start the client side of the application:
 
 ```
-npm run build:dev && npm start
+npm run start-dev
 ```
+This will start both client and server side of application.
 
-In project root, to start the server:
+Optionally you can specify a port by supplying the `PORT` env variable.
 
-```
-npm run start-server
-```
-Optionally specify a port by supplying the `PORT` env variable.
+Automatically a new browser window will be opened which points to `http://localhost:8080`.
 
-And point your browser to `http://localhost:8080`.
+After that, point a new browser tab to `http://localhost:8080` in order to simulate the other user behaviours.
 
-After that, point a new browser tab to `http://localhost:8080` too.
-
-Now you are free to send some messages to other users who coneected the room already :)
+Now you are free to send some messages to other users who are connected to the room already :)
 
 ### For optimized production build
 
@@ -62,3 +58,7 @@ npm run build
 ```
 npm run test
 ```
+
+## Demo
+
+[🚀 The application is hosted on heroku](https://reactjs-simple-chat-app.herokuapp.com/)
