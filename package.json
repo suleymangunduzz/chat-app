@@ -4,11 +4,14 @@
     "private": true,
     "author": "Süleyman GÜNDÜZ",
     "scripts": {
-        "start": "npm-run-all -p start-client start-server",
+        "start": "npm run start-server",
+        "start-dev": "npm-run-all -p start-client start-dev-server",
         "start-client": "webpack serve",
-        "start-server": "nodemon server.js",
+        "start-server": "node server.js",
+        "start-dev-server": "nodemon server.js",
         "build:dev": "export NODE_ENV=development && rm -rf ./build && webpack --config webpack.config.js",
         "build": "export NODE_ENV=production && rm -rf ./build && webpack --config webpack.config.js",
+        "prestart": "npm run build",
         "test": "jest"
     },
     "dependencies": {
