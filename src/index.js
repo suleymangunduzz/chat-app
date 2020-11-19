@@ -24,7 +24,7 @@ export const App = () => {
     const messageBoxRef = useRef();
 
     useEffect(() => {
-        socketRef.current = io.connect('http://localhost:8000');
+        socketRef.current = io.connect(SOCKET_URL);
         socketRef.current.on('user id', id => setUserID(id));
         socketRef.current.emit('join');
         socketRef.current.on('message', message => recievedMessage(message));
@@ -75,7 +75,7 @@ export const App = () => {
                 timeType={ timeType }
                 { ...message } />)
             :
-            <div className="empty-state">There is no messages yet !</div>
+            <div className="empty-state">There are no messages yet !</div>
     };    
 
     return (
