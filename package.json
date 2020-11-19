@@ -11,7 +11,7 @@
         "start-dev-server": "nodemon server.js",
         "build:dev": "export NODE_ENV=development && rm -rf ./build && webpack --config webpack.config.js",
         "build": "export NODE_ENV=production && rm -rf ./build && webpack --config webpack.config.js",
-        "prestart": "npm run build",
+        "postinstall": "npm run build",
         "test": "jest"
     },
     "dependencies": {
