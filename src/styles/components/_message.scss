@@ -26,9 +26,11 @@
 
         &--left {
             margin-right: auto;
+            margin-left: 5px;
         }
 
         &--right {
+            margin-right: 5px;
             margin-left: auto;
             text-align: right;
         }

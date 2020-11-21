@@ -1,5 +1,4 @@
 .modal {
-    width: 50%;
     position: absolute;
     background: white;
     border: 1px solid #ccc;
@@ -20,8 +19,6 @@
     }
 
     @supports (offset-rotate: 0deg) {
-      offset-rotate: 0deg;
-      offset-path: path("M 250,100 S -300,500 -700,-200");
       &.off {
         offset-distance: 100%;
       }
